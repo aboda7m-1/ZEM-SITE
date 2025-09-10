@@ -1,0 +1,9 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "$2b$10$EJepG4/aiy2HdgIWIX0AoufvTdZtF5WFQaf6b/ojvapOAyTWQTaBy",
+    "role": "admin",
+    "nickname": "Admin",
+    "avatar": "https://via.placeholder.com/60/FF0000/FFFFFF?text=A"
+  }
+}

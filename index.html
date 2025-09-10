@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZEN</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <section id="home" class="active welcome-screen">
+    <div class="card">
+      <h1>مرحبا بك في ZEN</h1>
+      <p>حيث السوالف والضحك</p>
+      <div class="actions">
+        <button onclick="showSection('login')" class="login-btn"><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</button>
+        <button onclick="showSection('register')" class="register-btn"><i class="fas fa-user-plus"></i> إنشاء حساب</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="login" class="auth-page">
+    <div class="card">
+      <h2>تسجيل الدخول</h2>
+      <input type="text" id="login-username" placeholder="اسم المستخدم" class="fancy-input">
+      <div class="password-container">
+        <input type="password" id="login-password" placeholder="كلمة المرور" class="fancy-input">
+        <span class="toggle-password" onclick="togglePasswordVisibility('login-password')"><i class="fas fa-eye"></i></span>
+      </div>
+      <button onclick="login()" class="submit-btn">دخول</button>
+      <button class="back-btn" onclick="showSection('home')">رجوع</button>
+    </div>
+  </section>
+
+  <section id="register" class="auth-page">
+    <div class="card">
+      <h2>إنشاء حساب</h2>
+      <input type="text" id="register-username" placeholder="اسم المستخدم (3 أحرف أو أكثر)" class="fancy-input">
+      <input type="text" id="register-nickname" placeholder="الاسم المستعار" class="fancy-input">
+      <div class="password-container">
+        <input type="password" id="register-password" placeholder="كلمة المرور (8 أحرف أو أكثر)" class="fancy-input">
+        <span class="toggle-password" onclick="togglePasswordVisibility('register-password')"><i class="fas fa-eye"></i></span>
+      </div>
+      <button onclick="register()" class="submit-btn">إنشاء</button>
+      <button class="back-btn" onclick="showSection('home')">رجوع</button>
+    </div>
+  </section>
+
+  <section id="dashboard" class="main-page">
+    <div class="sidebar">
+      <div class="user-info">
+        <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="user-avatar" id="user-avatar-sidebar">
+        <span id="user-nickname-sidebar"></span>
+      </div>
+      <button onclick="showSection('chat')"><i class="fas fa-comments"></i> شات</button>
+      <button onclick="showSection('top-users')"><i class="fas fa-medal"></i> أكثر المستخدمين</button>
+      <button onclick="showSection('rules')"><i class="fas fa-book"></i> القوانين</button>
+      <button onclick="showSection('news')"><i class="fas fa-newspaper"></i> أخبار</button>
+      <button onclick="showSection('settings')"><i class="fas fa-cogs"></i> الإعدادات</button>
+      <button onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</button>
+    </div>
+    <div class="main-content">
+      <div class="header">
+        <h1>مرحباً <span id="user-nickname-dashboard"></span></h1>
+        <p>اختر أحد الأقسام من القائمة الجانبية.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="chat" class="main-page">
+    <div class="sidebar">
+      <div class="user-info">
+        <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="user-avatar" id="user-avatar-chat">
+        <span id="user-nickname-chat"></span>
+      </div>
+      <button onclick="showSection('chat')"><i class="fas fa-comments"></i> شات</button>
+      <button onclick="showSection('top-users')"><i class="fas fa-medal"></i> أكثر المستخدمين</button>
+      <button onclick="showSection('rules')"><i class="fas fa-book"></i> القوانين</button>
+      <button onclick="showSection('news')"><i class="fas fa-newspaper"></i> أخبار</button>
+      <button onclick="showSection('settings')"><i class="fas fa-cogs"></i> الإعدادات</button>
+      <button onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</button>
+    </div>
+    <div class="main-content chat-content">
+      <div id="messages"></div>
+      <div class="input-container">
+        <input type="text" id="messageInput" placeholder="اكتب رسالتك...">
+        <button id="sendBtn" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="top-users" class="main-page">
+    <div class="sidebar">
+      <div class="user-info">
+        <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="user-avatar" id="user-avatar-top-users">
+        <span id="user-nickname-top-users"></span>
+      </div>
+      <button onclick="showSection('chat')"><i class="fas fa-comments"></i> شات</button>
+      <button onclick="showSection('top-users')"><i class="fas fa-medal"></i> أكثر المستخدمين</button>
+      <button onclick="showSection('rules')"><i class="fas fa-book"></i> القوانين</button>
+      <button onclick="showSection('news')"><i class="fas fa-newspaper"></i> أخبار</button>
+      <button onclick="showSection('settings')"><i class="fas fa-cogs"></i> الإعدادات</button>
+      <button onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</button>
+    </div>
+    <div class="main-content">
+      <h2>أكثر المستخدمين نشاطًا</h2>
+      <p>هنا ستظهر قائمة بالمستخدمين الأكثر تفاعلاً.</p>
+    </div>
+  </section>
+
+  <section id="news" class="main-page">
+    <div class="sidebar">
+      <div class="user-info">
+        <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="user-avatar" id="user-avatar-news">
+        <span id="user-nickname-news"></span>
+      </div>
+      <button onclick="showSection('chat')"><i class="fas fa-comments"></i> شات</button>
+      <button onclick="showSection('top-users')"><i class="fas fa-medal"></i> أكثر المستخدمين</button>
+      <button onclick="showSection('rules')"><i class="fas fa-book"></i> القوانين</button>
+      <button onclick="showSection('news')"><i class="fas fa-newspaper"></i> أخبار</button>
+      <button onclick="showSection('settings')"><i class="fas fa-cogs"></i> الإعدادات</button>
+      <button onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</button>
+    </div>
+    <div class="main-content">
+      <h2>أخبار الموقع</h2>
+      <p class="news-text">هنا يمكنك وضع الأخبار أو النصوص الخاصة بالموقع.</p>
+    </div>
+  </section>
+
+  <section id="rules" class="main-page">
+    <div class="sidebar">
+      <div class="user-info">
+        <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="user-avatar" id="user-avatar-rules">
+        <span id="user-nickname-rules"></span>
+      </div>
+      <button onclick="showSection('chat')"><i class="fas fa-comments"></i> شات</button>
+      <button onclick="showSection('top-users')"><i class="fas fa-medal"></i> أكثر المستخدمين</button>
+      <button onclick="showSection('rules')"><i class="fas fa-book"></i> القوانين</button>
+      <button onclick="showSection('news')"><i class="fas fa-newspaper"></i> أخبار</button>
+      <button onclick="showSection('settings')"><i class="fas fa-cogs"></i> الإعدادات</button>
+      <button onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</button>
+    </div>
+    <div class="main-content">
+      <h2>قوانين الشات</h2>
+      <ul class="rules-list">
+        <li><i class="fas fa-check-circle"></i> **السب والقذف:** ممنوع السب والقذف، والتلميح لسب ممنوع أيضاً.</li>
+        <li><i class="fas fa-check-circle"></i> **المواضيع الحساسة:** يمنع التكلم عن أي أمور دينية أو سياسية.</li>
+        <li><i class="fas fa-check-circle"></i> **الاحترام:** يجب احترام جميع الأعضاء والإدارة.</li>
+        <li><i class="fas fa-check-circle"></i> **اللغة:** ممنوع كتابة كلام بغير اللغة العربية والإنجليزية.</li>
+        <li><i class="fas fa-check-circle"></i> **الكلام غير المفهوم:** ممنوع كتابة كلام غير مفهوم مثل: قغاقاسيب.</li>
+        <li><i class="fas fa-check-circle"></i> **السبام:** ممنوع سبام الإيموجيات أو الصور أو أي نوع آخر.</li>
+        <li><i class="fas fa-check-circle"></i> **البيع والشراء:** ممنوع البيع والشراء في الموقع.</li>
+        <li><i class="fas fa-check-circle"></i> **المحتوى غير اللائق:** ممنوع نشر محتوى 18+ سواء كان صور أو كلام.</li>
+        <li><i class="fas fa-check-circle"></i> **التحرش:** ممنوع التحرش بالأعضاء أو التغزل بهم وخاصة البنات.</li>
+        <li><i class="fas fa-check-circle"></i> **المشاكل الشخصية:** أي مشكلة خاصة ليس للإدارة علاقة بها.</li>
+        <li><i class="fas fa-check-circle"></i> **الأسماء والصور:** يمنع استخدام صور أو أسماء غير مناسبة.</li>
+        <li><i class="fas fa-check-circle"></i> **الإزعاج:** يمنع إزعاج الأعضاء في الشات وجعلهم يتوقفون عن التفاعل.</li>
+      </ul>
+      <div class="rules-note">
+          <p>عدم قراءتك للقوانين ليس عذراً.</p>
+          <p>القوانين قابلة للتعديل في أي وقت ويجب مراعاة تعب الإدارة وعدم مخالفتها.</p>
+          <p>ستتعرض لعقوبات شديدة إن خالفت القوانين.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="settings" class="main-page">
+    <div class="sidebar">
+      <div class="user-info">
+        <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="user-avatar" id="user-avatar-settings">
+        <span id="user-nickname-settings"></span>
+      </div>
+      <button onclick="showSection('chat')"><i class="fas fa-comments"></i> شات</button>
+      <button onclick="showSection('top-users')"><i class="fas fa-medal"></i> أكثر المستخدمين</button>
+      <button onclick="showSection('rules')"><i class="fas fa-book"></i> القوانين</button>
+      <button onclick="showSection('news')"><i class="fas fa-newspaper"></i> أخبار</button>
+      <button onclick="showSection('settings')"><i class="fas fa-cogs"></i> الإعدادات</button>
+      <button onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</button>
+    </div>
+    <div class="main-content settings-content">
+      <h2>الإعدادات</h2>
+      <div class="setting-item">
+        <label>صورة الحساب:</label>
+        <input type="text" id="avatarInput" placeholder="رابط URL لصورة جديدة">
+        <button id="updateAvatarBtn" class="submit-btn">تحديث</button>
+      </div>
+      <div class="setting-item">
+        <label>تغيير الاسم:</label>
+        <input type="text" id="nickInput" placeholder="اكتب اسمك الجديد">
+        <button id="nickBtn" class="submit-btn">تغيير</button>
+      </div>
+      <div class="setting-item">
+        <label>تغيير الثيم:</label>
+        <button onclick="toggleTheme()" class="submit-btn theme-btn">🌙/☀️</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/spa.js"></script>
+</body>
+</html>

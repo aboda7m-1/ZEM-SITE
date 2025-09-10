@@ -1,0 +1,19 @@
+{
+  "دحميشن": "$2b$10$SA6t5RLkAlELOIfW12vd7OvAWw2nHXawN.c65pei5nhPM74g/Qj4S",
+  "ابوداحم": {
+    "password": "$2b$10$RHE2n6QvLQRNWw7XaBbPjOBFcGqaXQzjTBQgFRpt2bX3ynamQ8eve",
+    "nickname": "دحوم",
+    "avatar": "https://via.placeholder.com/60/0d6efd/FFFFFF?text=د"
+  },
+  "ابوداحمل": {
+    "password": "$2b$10$2GVO81gscUWmE3RJfCuMpOHYcMaJ3NLHYaKy.qmDJPjLmpehslo9W",
+    "nickname": "دحوم",
+    "avatar": "https://via.placeholder.com/60/0d6efd/FFFFFF?text=د"
+  },
+  "بابلا": {
+    "password": "$2b$10$7e5p4jGp.PQPzDZMroWlIOowI30qKjGonmzgiLQdADWbWSH57h1HS",
+    "nickname": "بلابلا",
+    "avatar": "https://via.placeholder.com/60/0d6efd/FFFFFF?text=ب",
+    "role": "user"
+  }
+}
